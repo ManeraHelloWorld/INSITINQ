@@ -71,7 +71,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-sm tracking-wide transition-colors hover:text-white",
+                  "font-pixel text-xs uppercase tracking-wider transition-colors hover:text-white sm:text-[13px]",
                   active ? "text-white" : "text-white/80",
                 )}
                 aria-current={active ? "page" : undefined}
@@ -85,7 +85,7 @@ export function Header() {
         <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/contacts"
-            className="inline-flex h-9 items-center justify-center rounded-pill bg-primary px-4 text-sm font-medium text-white transition-colors hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-5"
+            className="inline-flex h-9 items-center justify-center rounded-pill bg-primary px-4 font-pixel text-[11px] uppercase tracking-wider text-white transition-colors hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-5 sm:text-xs"
           >
             {t("nav.discuss")}
           </Link>

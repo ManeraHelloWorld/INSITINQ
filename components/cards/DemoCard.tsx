@@ -1,5 +1,8 @@
+"use client";
+
 import type { DemoItem } from "@/types";
 import { cn } from "@/lib/cn";
+import { useLocale } from "@/lib/locale-context";
 
 type DemoCardProps = {
   item: DemoItem;
@@ -7,6 +10,8 @@ type DemoCardProps = {
 };
 
 export function DemoCard({ item, reverse = false }: DemoCardProps) {
+  const { t } = useLocale();
+
   return (
     <article
       id={item.id}
@@ -35,7 +40,7 @@ export function DemoCard({ item, reverse = false }: DemoCardProps) {
       </div>
 
       <div className={cn("flex flex-col", reverse && "lg:order-1")}>
-        <h3 className="font-pixel text-2xl uppercase tracking-wide text-white sm:text-3xl">
+        <h3 className="font-sans text-2xl font-semibold uppercase tracking-wide text-white sm:text-3xl">
           {item.title}
         </h3>
         <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
@@ -46,7 +51,7 @@ export function DemoCard({ item, reverse = false }: DemoCardProps) {
             type="button"
             className="inline-flex h-11 items-center rounded-pill bg-primary px-6 text-sm font-medium text-white transition-colors hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
-            {item.cta}
+            {t("demo.cta")}
           </button>
         </div>
       </div>

@@ -39,19 +39,11 @@ const config: Config = {
         success: withAlpha("--rgb-success"),
       },
       fontFamily: {
+        /* Unbounded — основной шрифт сайта */
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        display: [
-          "var(--font-pixel)",
-          "var(--font-sans)",
-          "system-ui",
-          "sans-serif",
-        ],
-        pixel: [
-          "var(--font-pixel)",
-          "var(--font-sans)",
-          "system-ui",
-          "sans-serif",
-        ],
+        display: ["var(--font-sans)", "system-ui", "sans-serif"],
+        /* Pixeloid Mono — меню, ЗАЯВКА, ОТПРАВИТЬ */
+        pixel: ["var(--font-pixel)", "var(--font-sans)", "monospace"],
       },
       borderRadius: {
         sm: "var(--radius-sm)",

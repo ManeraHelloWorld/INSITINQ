@@ -197,5 +197,6 @@ export const site = {
   phoneHref: "tel:+77055557233",
   emailHref: "mailto:insaitiq.systems@gmail.com",
   whatsappHref: "https://wa.me/77055557233",
-  instagramHref: "https://instagram.com/",
+  instagramHref:
+    "https://www.instagram.com/insaitiq.systems?stkn=ZWl6bWo4NzlmMXJs",
 } as const;

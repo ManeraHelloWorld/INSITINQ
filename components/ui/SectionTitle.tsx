@@ -18,7 +18,7 @@ export function SectionTitle({
       {eyebrow ? (
         <p className="text-sm uppercase tracking-[0.18em] text-muted">{eyebrow}</p>
       ) : null}
-      <Tag className="font-pixel text-3xl uppercase leading-snug tracking-wide text-foreground sm:text-4xl lg:text-5xl text-balance">
+      <Tag className="font-sans text-3xl font-semibold uppercase leading-snug tracking-wide text-foreground sm:text-4xl lg:text-5xl text-balance">
         {children}
       </Tag>
     </div>

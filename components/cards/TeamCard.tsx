@@ -34,9 +34,9 @@ export function TeamCard({ member }: TeamCardProps) {
         <Image
           src={iconSrc}
           alt=""
-          width={22}
-          height={22}
-          className="mt-1 h-5 w-5 shrink-0 object-contain"
+          width={40}
+          height={40}
+          className="mt-0.5 h-9 w-9 shrink-0 object-contain sm:h-10 sm:w-10"
           aria-hidden
         />
       </div>

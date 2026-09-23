@@ -33,6 +33,12 @@ export const footerDemoLinks: NavItem[] = [
   { href: "/demo#qr-menu", labelKey: "footer.demoQrMenu" },
 ];
 
+export const footerLegalLinks: NavItem[] = [
+  { href: "/contacts#privacy", labelKey: "footer.privacy" },
+  { href: "/contacts#terms", labelKey: "footer.terms" },
+  { href: "/contacts#cookies", labelKey: "footer.cookies" },
+];
+
 /** Цепочка next-page без отдельной /about */
 export const pageOrder = [
   "/",

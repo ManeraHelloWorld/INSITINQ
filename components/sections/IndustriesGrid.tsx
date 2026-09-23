@@ -5,9 +5,10 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 import { IndustryCard } from "@/components/cards/IndustryCard";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { industries } from "@/lib/content";
-import { t } from "@/lib/i18n";
+import { useLocale } from "@/lib/locale-context";
 
 export function IndustriesGrid() {
+  const { t } = useLocale();
   return (
     <section className="py-16 sm:py-20 lg:py-24">
       <Container>

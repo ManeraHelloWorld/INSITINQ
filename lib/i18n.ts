@@ -1,6 +1,5 @@
 import type { Locale } from "@/types";
 
-/** RU texts from mockups. KZ/EN — TODO: provide translations */
 const ru = {
   "brand.name": "Insaitiq SYSTEM",
   "brand.short": "Insaitiq",
@@ -17,6 +16,7 @@ const ru = {
   "nav.close": "ЗАКРЫТЬ",
   "footer.company": "Компания",
   "footer.demo": "Демо",
+  "footer.legal": "Документы",
   "footer.home": "Главная",
   "footer.about": "О компании",
   "footer.industries": "Отрасли",
@@ -25,6 +25,9 @@ const ru = {
   "footer.demoConstructor": "Constructor AI",
   "footer.demoCrm": "CRM",
   "footer.demoQrMenu": "QR-menu",
+  "footer.privacy": "Обработка персональных данных",
+  "footer.terms": "Пользовательское соглашение",
+  "footer.cookies": "Политика cookies",
   "footer.nextPage": "Следующая страница",
   "footer.backHome": "В начало",
   "footer.email": "insaitiq.systems@gmail.com",
@@ -56,18 +59,148 @@ const ru = {
   "contact.submit": "Отправить",
   "contact.disclaimer":
     "Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Мы ответим и предложим следующий шаг.",
+  "contact.success": "Заявка отправлена. Мы свяжемся с вами.",
+  "contact.error": "Не удалось отправить заявку",
   "cases.title": "Кейсы",
-  "cases.todo": "TODO: контент страницы «Кейсы» отсутствует в приложенных макетах — нужен PNG/текст.",
+  "cases.todo": "Контент страницы «Кейсы» скоро появится.",
 } as const;
 
 export type MessageKey = keyof typeof ru;
 
-const dictionaries: Record<Locale, Partial<Record<MessageKey, string>> & typeof ru> = {
-  ru,
-  // TODO: KZ translations
-  kz: { ...ru },
-  // TODO: EN translations
-  en: { ...ru },
+const en: Record<MessageKey, string> = {
+  "brand.name": "Insaitiq SYSTEM",
+  "brand.short": "Insaitiq",
+  "nav.home": "Home",
+  "nav.about": "About",
+  "nav.industries": "Industries",
+  "nav.cases": "Cases",
+  "nav.demo": "Demo",
+  "nav.team": "Team",
+  "nav.contact": "Contacts",
+  "nav.discuss": "Discuss",
+  "nav.solutions": "Our solutions",
+  "nav.menu": "MENU",
+  "nav.close": "CLOSE",
+  "footer.company": "Company",
+  "footer.demo": "Demo",
+  "footer.legal": "Legal",
+  "footer.home": "Home",
+  "footer.about": "About",
+  "footer.industries": "Industries",
+  "footer.cases": "Cases",
+  "footer.demoAilam": "Ailam",
+  "footer.demoConstructor": "Constructor AI",
+  "footer.demoCrm": "CRM",
+  "footer.demoQrMenu": "QR-menu",
+  "footer.privacy": "Personal data processing",
+  "footer.terms": "Terms of use",
+  "footer.cookies": "Cookie policy",
+  "footer.nextPage": "Next page",
+  "footer.backHome": "Back home",
+  "footer.email": "insaitiq.systems@gmail.com",
+  "footer.phone": "+7 705 555 7233",
+  "hero.title": "IT solutions & AI systems development",
+  "hero.subtitle":
+    "We help companies cut costs, speed up processes, and run the business through data, automation, and AI.",
+  "hero.cta": "Our solutions",
+  "about.title": "About us",
+  "about.body":
+    "Insaitiq Systems is a team of specialists with deep expertise in operations, procurement, document flow, analytics, and corporate governance. We deploy AI where it creates real economic impact.",
+  "partners.title": "Partners & companies",
+  "industries.title": "Experience across key industries",
+  "demo.title": "Demo",
+  "demo.intro":
+    "Try our products on real scenarios: see how processes, interfaces, automation, and product logic work inside.",
+  "demo.cta": "Try demo",
+  "team.title": "Leadership team",
+  "contact.heading": "Tell us about your task",
+  "contact.formTitle": "REQUEST",
+  "contact.formIntro":
+    "Describe a product or AI task — we will contact you and suggest a clear next step.",
+  "contact.fullName": "Full name",
+  "contact.phone": "Phone number",
+  "contact.company": "Company name",
+  "contact.email": "Email",
+  "contact.task": "Your task",
+  "contact.taskPlaceholder": "Describe a product or AI task",
+  "contact.submit": "Send",
+  "contact.disclaimer":
+    "By clicking the button you agree to personal data processing. We will reply and suggest the next step.",
+  "contact.success": "Request sent. We will contact you.",
+  "contact.error": "Failed to send the request",
+  "cases.title": "Cases",
+  "cases.todo": "Case studies content is coming soon.",
+};
+
+const kz: Record<MessageKey, string> = {
+  "brand.name": "Insaitiq SYSTEM",
+  "brand.short": "Insaitiq",
+  "nav.home": "Басты бет",
+  "nav.about": "Компания туралы",
+  "nav.industries": "Салалар",
+  "nav.cases": "Кейстер",
+  "nav.demo": "Демо",
+  "nav.team": "Команда",
+  "nav.contact": "Байланыс",
+  "nav.discuss": "Талқылау",
+  "nav.solutions": "Шешімдеріміз",
+  "nav.menu": "МӘЗІР",
+  "nav.close": "ЖАБУ",
+  "footer.company": "Компания",
+  "footer.demo": "Демо",
+  "footer.legal": "Құжаттар",
+  "footer.home": "Басты бет",
+  "footer.about": "Компания туралы",
+  "footer.industries": "Салалар",
+  "footer.cases": "Кейстер",
+  "footer.demoAilam": "Ailam",
+  "footer.demoConstructor": "Constructor AI",
+  "footer.demoCrm": "CRM",
+  "footer.demoQrMenu": "QR-menu",
+  "footer.privacy": "Жеке деректерді өңдеу",
+  "footer.terms": "Пайдаланушы келісімі",
+  "footer.cookies": "Cookie саясаты",
+  "footer.nextPage": "Келесі бет",
+  "footer.backHome": "Басына",
+  "footer.email": "insaitiq.systems@gmail.com",
+  "footer.phone": "+7 705 555 7233",
+  "hero.title": "IT шешімдер мен AI-жүйелер әзірлеу",
+  "hero.subtitle":
+    "Компанияларға шығынды азайтуға, процестерді жеделдетуге және бизнесті деректер, автоматтандыру мен AI арқылы басқаруға көмектесеміз.",
+  "hero.cta": "Шешімдеріміз",
+  "about.title": "Біз туралы",
+  "about.body":
+    "Insaitiq Systems — операциялық процестер, сатып алу, құжат айналымы, аналитика және корпоративтік басқаруды терең түсінетін мамандар синергиясы. AI-ды нақты экономикалық әсер беретін жерге енгіземіз.",
+  "partners.title": "Серіктестер мен компаниялар",
+  "industries.title": "Негізгі салалардағы тәжірибе",
+  "demo.title": "Демо",
+  "demo.intro":
+    "Өнімдерімізді нақты сценарийлерде тексеріңіз: процестер, интерфейстер, автоматтандыру және ішкі логика қалай жұмыс істейтінін көріңіз.",
+  "demo.cta": "Тексеру",
+  "team.title": "Басшылық құрамы",
+  "contact.heading": "Тапсырмаңыз туралы айтыңыз",
+  "contact.formTitle": "ӨТІНІМ",
+  "contact.formIntro":
+    "Өнімді немесе AI-тапсырманы сипаттаңыз — біз хабарласып, түсінікті келесі қадамды ұсынамыз.",
+  "contact.fullName": "Аты-жөні",
+  "contact.phone": "Телефон нөмірі",
+  "contact.company": "Компания атауы",
+  "contact.email": "Email",
+  "contact.task": "Тапсырмаңыз",
+  "contact.taskPlaceholder": "Өнімді немесе AI-тапсырманы сипаттаңыз",
+  "contact.submit": "Жіберу",
+  "contact.disclaimer":
+    "Батырманы басу арқылы жеке деректерді өңдеуге келісесіз. Біз жауап беріп, келесі қадамды ұсынамыз.",
+  "contact.success": "Өтінім жіберілді. Біз сізбен хабарласамыз.",
+  "contact.error": "Өтінімді жіберу мүмкін болмады",
+  "cases.title": "Кейстер",
+  "cases.todo": "Кейстер бетінің мазмұны жақында пайда болады.",
+};
+
+const dictionaries: Record<Locale, Record<MessageKey, string>> = {
+  ru: { ...ru },
+  en,
+  kz,
 };
 
 export const defaultLocale: Locale = "ru";

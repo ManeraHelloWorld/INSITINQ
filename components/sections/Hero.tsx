@@ -1,10 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { t } from "@/lib/i18n";
+import { useLocale } from "@/lib/locale-context";
 
-/** Hero as on mockup: lead text above, rounded photo banner with title + CTA overlay */
 export function Hero() {
+  const { t } = useLocale();
+
   return (
     <section className="pb-10 pt-6 sm:pb-14 sm:pt-8">
       <Container>
@@ -15,7 +18,7 @@ export function Hero() {
         <div className="relative isolate min-h-[280px] overflow-hidden rounded-2xl sm:min-h-[340px] lg:min-h-[400px] lg:rounded-3xl">
           <Image
             src="/images/hero/banner.png"
-            alt="Астана — вид на город"
+            alt=""
             fill
             priority
             className="object-cover object-[center_42%]"
@@ -24,7 +27,7 @@ export function Hero() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-black/15" />
 
           <div className="relative z-10 flex h-full min-h-[280px] flex-col justify-end gap-6 p-6 sm:min-h-[340px] sm:p-10 lg:min-h-[400px] lg:max-w-[55%] lg:p-12">
-            <h1 className="font-pixel text-[clamp(1.35rem,3.8vw,2.75rem)] uppercase leading-[1.2] tracking-wide text-white">
+            <h1 className="font-sans text-[clamp(1.35rem,3.8vw,2.75rem)] font-semibold uppercase leading-[1.15] tracking-wide text-white">
               {t("hero.title")}
             </h1>
             <div>

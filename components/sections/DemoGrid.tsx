@@ -5,9 +5,10 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 import { DemoCard } from "@/components/cards/DemoCard";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { demos } from "@/lib/content";
-import { t } from "@/lib/i18n";
+import { useLocale } from "@/lib/locale-context";
 
 export function DemoGrid() {
+  const { t } = useLocale();
   return (
     <section className="py-16 sm:py-20 lg:py-24">
       <Container>

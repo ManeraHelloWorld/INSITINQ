@@ -8,12 +8,6 @@ import { useNextPageTrigger } from "@/lib/hooks/useNextPageTrigger";
 import { useLocale } from "@/lib/locale-context";
 import { cn } from "@/lib/cn";
 
-/**
- * Layout as in mockup:
- *   [========----------] →
- *   Следующая страница
- * Thin track, blue fill, arrow at the end of the line; label under the bar.
- */
 export function NextPageTrigger() {
   const pathname = usePathname() || "/";
   const { t } = useLocale();
@@ -34,8 +28,11 @@ export function NextPageTrigger() {
             className="group ml-auto flex w-full max-w-md flex-col gap-2 sm:ml-0 sm:max-w-lg md:ml-auto"
           >
             <div className="flex items-center gap-3">
+              <span className="whitespace-nowrap text-sm font-medium uppercase tracking-wide text-white/90">
+                {label}
+              </span>
               <span
-                className="relative h-px flex-1 overflow-visible bg-white/15"
+                className="relative h-2 flex-1 overflow-hidden rounded-full bg-white/20"
                 role="progressbar"
                 aria-valuemin={0}
                 aria-valuemax={100}
@@ -44,25 +41,18 @@ export function NextPageTrigger() {
               >
                 <span
                   className={cn(
-                    "absolute inset-y-0 left-0 h-full bg-primary",
-                    "transition-[width] duration-150 ease-out",
+                    "absolute left-0 top-0 h-full rounded-full bg-primary",
+                    "transition-[width] duration-100 ease-out",
                   )}
-                  style={{
-                    width: `${widthPct}%`,
-                    height: "2px",
-                    top: "-0.5px",
-                  }}
+                  style={{ width: `${widthPct}%` }}
                 />
               </span>
               <ArrowRight
-                className="h-4 w-4 shrink-0 text-white transition-transform duration-300 group-hover:translate-x-0.5"
-                strokeWidth={1.5}
+                className="h-5 w-5 shrink-0 text-white transition-transform duration-300 group-hover:translate-x-0.5"
+                strokeWidth={1.75}
                 aria-hidden
               />
             </div>
-            <span className="text-sm text-muted transition-colors group-hover:text-white">
-              {label}
-            </span>
           </Link>
         </Container>
       </div>

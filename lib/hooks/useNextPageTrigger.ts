@@ -13,23 +13,19 @@ type Options = {
   pathname: string;
   thresholdPx?: number;
   damping?: number;
-  /** Через сколько мс без колеса начинать сброс прогресса */
-  idleMs?: number;
 };
 
-const IDLE_DECAY_MS = 2000;
-const DECAY_STEP = 0.04;
+const DECAY_STEP = 0.018;
 const DECAY_INTERVAL_MS = 40;
 
 /**
- * Next Page Scroll Trigger — прогресс копится от лишнего wheel у низа страницы.
- * Через 2с без вращения колеса полоска начинает сужаться.
+ * Прогресс копится от wheel у низа страницы.
+ * Как только листание остановилось — полоска сразу сужается.
  */
 export function useNextPageTrigger({
   pathname,
   thresholdPx = NEXT_PAGE_CHARGE_PX,
   damping = NEXT_PAGE_CHARGE_DAMPING,
-  idleMs = IDLE_DECAY_MS,
 }: Options) {
   const router = useRouter();
   const [progress, setProgress] = useState(0);
@@ -57,7 +53,10 @@ export function useNextPageTrigger({
   const startDecay = useCallback(() => {
     clearDecay();
     decayTimerRef.current = setInterval(() => {
-      chargedRef.current = Math.max(0, chargedRef.current - thresholdPx * DECAY_STEP);
+      chargedRef.current = Math.max(
+        0,
+        chargedRef.current - thresholdPx * DECAY_STEP,
+      );
       const next = chargedRef.current / thresholdPx;
       setProgress(next);
       if (next <= 0) {
@@ -68,6 +67,7 @@ export function useNextPageTrigger({
     }, DECAY_INTERVAL_MS);
   }, [clearDecay, thresholdPx]);
 
+  /** После остановки wheel (~120мс тишины) сразу сужаем — между тиками скролла не сбрасываем */
   const scheduleIdleDecay = useCallback(() => {
     clearIdle();
     clearDecay();
@@ -76,8 +76,8 @@ export function useNextPageTrigger({
       if (chargedRef.current > 0 && !navigatingRef.current) {
         startDecay();
       }
-    }, idleMs);
-  }, [clearDecay, clearIdle, idleMs, startDecay]);
+    }, 120);
+  }, [clearDecay, clearIdle, startDecay]);
 
   const reset = useCallback(() => {
     clearIdle();
@@ -111,8 +111,8 @@ export function useNextPageTrigger({
         return;
       }
 
-      // Любое вращение колеса у низа — отменяем сужение и копим снова
       clearDecay();
+      clearIdle();
 
       const delta = event.deltaY * damping;
 

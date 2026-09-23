@@ -4,13 +4,10 @@ import { Container } from "@/components/ui/Container";
 import { Counter } from "@/components/ui/Counter";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { counters } from "@/lib/content";
-import { t } from "@/lib/i18n";
+import { useLocale } from "@/lib/locale-context";
 
-/**
- * CSS grid: «О нас» и «2-4X» в одной первой строке —
- * заголовок гарантированно наверху, не по центру колонки.
- */
 export function AboutPreview() {
+  const { t } = useLocale();
   const [first, ...rest] = counters;
 
   return (
@@ -18,7 +15,7 @@ export function AboutPreview() {
       <Container>
         <ScrollReveal>
           <div className="grid gap-x-12 gap-y-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] lg:gap-x-20">
-            <h2 className="font-pixel text-3xl uppercase leading-none tracking-wide text-white sm:text-4xl lg:text-5xl">
+            <h2 className="font-sans text-3xl font-semibold uppercase leading-none tracking-wide text-white sm:text-4xl lg:text-5xl">
               {t("about.title")}
             </h2>
 

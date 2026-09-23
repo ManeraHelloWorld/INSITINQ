@@ -5,7 +5,7 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Marquee } from "@/components/ui/Marquee";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { partners } from "@/lib/content";
-import { t } from "@/lib/i18n";
+import { useLocale } from "@/lib/locale-context";
 
 function buildRow(base: typeof partners, minTiles = 40) {
   const out: { key: string }[] = [];
@@ -31,6 +31,7 @@ function PartnerTiles({ items }: { items: { key: string }[] }) {
 }
 
 export function Partners() {
+  const { t } = useLocale();
   const row1 = buildRow(partners.slice(0, 9));
   const row2 = buildRow(partners.slice(9, 18));
 
