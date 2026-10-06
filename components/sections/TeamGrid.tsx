@@ -4,11 +4,12 @@ import { Container } from "@/components/ui/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { TeamCard } from "@/components/cards/TeamCard";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
-import { team } from "@/lib/content";
+import { useLocalizedContent } from "@/lib/hooks/useLocalizedContent";
 import { useLocale } from "@/lib/locale-context";
 
 export function TeamGrid() {
   const { t } = useLocale();
+  const { team } = useLocalizedContent();
   return (
     <section className="py-10 sm:py-20 lg:py-24">
       <Container>

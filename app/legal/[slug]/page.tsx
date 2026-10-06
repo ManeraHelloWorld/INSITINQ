@@ -41,7 +41,7 @@ export default function LegalPage({ params }: LegalPageProps) {
           ))}
         </nav>
 
-        <div className="mb-8 space-y-1 text-right text-xs text-muted sm:text-sm">
+        <div className="mb-8 space-y-1 text-left text-xs text-muted sm:text-sm">
           {doc.approval.map((line) => (
             <p key={line}>{line}</p>
           ))}

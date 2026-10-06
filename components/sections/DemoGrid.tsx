@@ -4,11 +4,12 @@ import { Container } from "@/components/ui/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { DemoCard } from "@/components/cards/DemoCard";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
-import { demos } from "@/lib/content";
+import { useLocalizedContent } from "@/lib/hooks/useLocalizedContent";
 import { useLocale } from "@/lib/locale-context";
 
 export function DemoGrid() {
   const { t } = useLocale();
+  const { demos } = useLocalizedContent();
   return (
     <section className="py-10 sm:py-20 lg:py-24">
       <Container>

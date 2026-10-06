@@ -3,11 +3,12 @@
 import { Container } from "@/components/ui/Container";
 import { Counter } from "@/components/ui/Counter";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
-import { counters } from "@/lib/content";
+import { useLocalizedContent } from "@/lib/hooks/useLocalizedContent";
 import { useLocale } from "@/lib/locale-context";
 
 export function AboutPreview() {
   const { t } = useLocale();
+  const { counters } = useLocalizedContent();
 
   return (
     <section id="about" className="scroll-mt-24 py-10 sm:py-16 lg:py-20">
